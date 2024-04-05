@@ -34,8 +34,8 @@ export function Header() {
   return (
     <HeaderWrapper>
       <style dangerouslySetInnerHTML={{__html: colorsCssVars}} />
-      <div className="container">
-        <div className="flex items-center justify-between">
+      <div className="container relative"> {/* Add relative positioning here */}
+        <div className="flex justify-center items-center"> {/* Center items here */}
           <Link className="group" prefetch="intent" to={homePath}>
             <Logo
               className="h-auto w-[var(--logoWidth)]"
@@ -47,16 +47,17 @@ export function Header() {
               }
             />
           </Link>
-          <div className="flex items-center gap-0 md:gap-2">
-            <DesktopNavigation data={header?.menu} />
-            <CartDrawer />
-            <MobileNavigation data={header?.menu} />
-          </div>
+        </div>
+        <div className="absolute pr-7 right-0 top-1/2 transform -translate-y-1/2 flex items-center gap-0 md:gap-2"> {/* Add absolute positioning here */}
+          <DesktopNavigation data={header?.menu} />
+          <CartDrawer />
+          <MobileNavigation data={header?.menu} />
         </div>
       </div>
     </HeaderWrapper>
   );
 }
+
 
 function HeaderWrapper(props: {children: React.ReactNode}) {
   const {data} = useSanityRoot();
@@ -68,8 +69,6 @@ function HeaderWrapper(props: {children: React.ReactNode}) {
   const headerClassName = cx([
     'section-padding bg-background text-foreground',
     sticky !== 'none' && 'sticky top-0 z-50',
-    blur &&
-      'bg-opacity-95 backdrop-blur supports-[backdrop-filter]:bg-opacity-85',
     headerVariants({
       optional: showSeparatorLine ? 'separator-line' : null,
     }),
@@ -195,7 +194,7 @@ function useHeaderHeigth() {
       : 44;
 
   const desktopHeaderHeight = (
-    desktopLogoHeight +
+    desktopLogoHeight + 
     headerPadding.top +
     headerPadding.bottom +
     headerBorder

@@ -18,7 +18,7 @@ export function Logo(props: {
   const {data, encodeDataAttribute} = useSanityRoot();
   const sanitySettings = data?.settings;
   const logo = sanitySettings?.logo;
-  const siteName = sanitySettings?.siteName;
+  const siteName = sanitySettings?.siteName;  
 
   if (!logo?._ref) {
     return (

@@ -103,20 +103,7 @@ export function SanityImage({
   // No padding should be applied to the wrapper <span/> or the <img/> tag to avoid blurry LQIP becoming visible
   return (
     <span
-      className={cn(
-        'relative block overflow-hidden !p-0',
-        showBorder &&
-          'rounded-[--media-border-corner-radius] border-[rgb(var(--border)_/_var(--media-border-opacity))] [border-width:--media-border-thickness]',
-        showShadow &&
-          '[box-shadow:rgb(var(--shadow)_/_var(--media-shadow-opacity))_var(--media-shadow-horizontal-offset)_var(--media-shadow-vertical-offset)_var(--media-shadow-blur-radius)_0px]',
-      )}
-      id={data._ref ? `img-${data._ref}` : undefined}
-      style={
-        {
-          '--focalX': focalCoords.x + '%',
-          '--focalY': focalCoords.y + '%',
-        } as React.CSSProperties
-      }
+      
     >
       <img
         alt={data.altText || ''}

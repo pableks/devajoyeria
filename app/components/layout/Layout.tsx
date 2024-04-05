@@ -34,8 +34,9 @@ export function Layout({children = null}: LayoutProps) {
     >
       <FramerMotion>
         <NavigationProgressBar />
-        <AnnouncementBar />
+        
         <Header />
+        <AnnouncementBar />
         <main className="flex min-h-[90vh] grow flex-col gap-y-[calc(var(--space-between-template-sections)*.75)] sm:gap-y-[--space-between-template-sections]">
           {children}
         </main>

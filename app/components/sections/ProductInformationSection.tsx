@@ -119,6 +119,7 @@ function ProductInformationGrid({
             'lg:col-span-6',
             desktopMediaWidth === 'small' && 'lg:col-span-7',
             desktopMediaWidth === 'large' && 'lg:col-span-5',
+            '-mt-10 lg:mt-0', // Add margin-top on mobile devices
           )}
         >
           {productDetails}
