@@ -31,18 +31,29 @@ CardHeader.displayName = 'CardHeader';
 const CardMedia = forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & {
-    aspectRatio?: 'auto' | 'square' | 'video';
+    aspectRatio?: 'auto' | 'square' | 'video'| 'tall';
   }
 >(({aspectRatio = 'video', className, ...props}, ref) => {
   const ratios = {
     auto: 'aspect-none',
     square: 'aspect-square',
     video: 'aspect-video',
+    tall: 'aspect-[3/3]',
   };
 
   return (
     <div
-      className={cn('relative overflow-hidden', ratios[aspectRatio], className)}
+      className={cn(
+        'relative overflow-hidden',
+        'group-hover/card:border', // Add border on hover
+        'group-hover/card:border-solid', // Specify border style
+        'group-hover/card:border-2', // Specify border width
+        'group-hover/card:border-pink-500', // Specify border color
+        'transition duration-700 ease-in-out', // Add transition properties
+        'group-hover/card:transition-delay-700', // Add transition delay on hover
+        ratios[aspectRatio],
+        className
+      )}
       ref={ref}
       {...props}
     >

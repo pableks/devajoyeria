@@ -76,7 +76,9 @@ export function ProductCard(props: {
           <Card className={cardClass}>
             {firstVariant?.image && (
               <CardMedia
-                aspectRatio={aspectRatio}
+               // Set a max width to maintain aspect ratio
+        
+                aspectRatio="tall"
                 className={cn(
                   'relative',
                   style === 'standard' &&
@@ -90,7 +92,7 @@ export function ProductCard(props: {
                 <ShopifyImage
                   aspectRatio={cn(
                     aspectRatio === 'square' && '1/1',
-                    aspectRatio === 'video' && '16/9',
+                    aspectRatio === 'video' && '1',
                     aspectRatio === 'auto' &&
                       `${firstVariant.image.width}/${firstVariant.image.height}`,
                   )}
@@ -106,7 +108,7 @@ export function ProductCard(props: {
                 />
               </CardMedia>
             )}
-            <CardContent className="p-3 md:px-6 md:py-4">
+            <CardContent className="p-3 md:px-5 md:py-3">
               <div className="overflow-hidden text-ellipsis whitespace-nowrap underline-offset-4 group-hover/card:underline md:text-lg">
                 {product.title}
               </div>

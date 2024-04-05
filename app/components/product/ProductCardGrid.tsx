@@ -26,7 +26,7 @@ export function ProductCardGrid(props: {
       className={cx([
         'grid gap-x-[--grid-horizontal-space] gap-y-[--grid-vertical-space]',
         'grid-cols-[repeat(var(--mobileColumns),_minmax(0,_1fr))]',
-        'sm:grid-cols-2',
+        'sm:grid-cols-2', 
         'lg:grid-cols-[repeat(var(--columns),_minmax(0,_1fr))]',
       ])}
       style={columnsVar}
