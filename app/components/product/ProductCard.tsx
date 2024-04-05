@@ -112,7 +112,7 @@ export function ProductCard(props: {
               <div className="overflow-hidden text-ellipsis whitespace-nowrap underline-offset-4 group-hover/card:underline md:text-lg">
                 {product.title}
               </div>
-              <div className={priceClass}>
+              <div className="{priceClass}">
                 {firstVariant.compareAtPrice && (
                   <ShopifyMoney
                     className="text-xs text-muted-foreground line-through md:text-sm"
