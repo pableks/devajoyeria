@@ -145,7 +145,7 @@ const Carousel = React.forwardRef<
           aria-roledescription="carousel"
           className={cn(
             'relative',
-            '[--slide-size:calc(100%_/_var(--slides-per-view))]',
+            '[--slide-size:calc(60%_/_var(--slides-per-view))]',
             className,
           )}
           onKeyDownCapture={handleKeyDown}

@@ -49,7 +49,7 @@ export function AnnouncementBar() {
   if (!annoucementBar) return null;
 
   return (
-    <section className="bg-background text-foreground" id="announcement-bar">
+    <section className="bg-background  text-foreground" id="announcement-bar">
       <div className="container">
         <style dangerouslySetInnerHTML={{__html: colorsCssVars}} />
         <Carousel opts={{active: isActive, align: 'center'}} plugins={plugins}>
