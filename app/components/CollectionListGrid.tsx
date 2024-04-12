@@ -6,6 +6,7 @@ import {cx} from 'class-variance-authority';
 
 import {CollectionCard} from './CollectionCard';
 
+
 export function CollectionListGrid(props: {
   collections?: CollectionsQuery['collections'];
   columns?: null | number;
@@ -21,6 +22,7 @@ export function CollectionListGrid(props: {
   } as CSSProperties;
 
   return (
+    
     <ul
       className={cx([
         'grid gap-x-[--grid-horizontal-space] gap-y-[--grid-vertical-space]',
@@ -28,6 +30,7 @@ export function CollectionListGrid(props: {
       ])}
       style={columnsVar}
     >
+
       {!props.skeleton && collections && collections.length > 0
         ? collections.map((collection) => (
             <li key={collection.id}>

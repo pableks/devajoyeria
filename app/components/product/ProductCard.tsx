@@ -13,6 +13,7 @@ import {ShopifyImage} from '../ShopifyImage';
 import {ShopifyMoney} from '../ShopifyMoney';
 import {ProductBadges} from '../blocks/PriceBlock';
 import {Card, CardContent, CardMedia} from '../ui/Card';
+import {Image} from "@nextui-org/react";
 
 export function ProductCard(props: {
   className?: string;
@@ -89,6 +90,7 @@ export function ProductCard(props: {
                     '[box-shadow:rgb(var(--shadow)_/_var(--product-card-shadow-opacity))_var(--product-card-shadow-horizontal-offset)_var(--product-card-shadow-vertical-offset)_var(--product-card-shadow-blur-radius)_0px]',
                 )}
               >
+                
                 <ShopifyImage
                   aspectRatio={cn(
                     aspectRatio === 'square' && '1/1',

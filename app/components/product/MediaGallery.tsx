@@ -45,14 +45,16 @@ export function MediaGallery(props: {aspectRatio?: AspectRatioData}) {
   return (
     <div>
       <div className="hidden lg:block">
-        <MainMedia aspectRatio={props.aspectRatio} media={selectedImage} />
+      <MainMedia aspectRatio={props.aspectRatio} media={selectedImage} />
       </div>
       <MobileCarousel aspectRatio={props.aspectRatio} medias={medias} />
+      <div className="lg:block items-center">
       <ThumbnailCarousel
         medias={medias}
         selectedImage={selectedImage}
         setActiveMediaId={setActiveMediaId}
       />
+      </div>
     </div>
   );
 }
@@ -68,13 +70,15 @@ function MainMedia({
     media.__typename === 'MediaImage' &&
     media.image && (
       <ShopifyImage
-        aspectRatio={aspectRatio?.value}
-        className={cn('h-auto w-full', aspectRatio?.className)}
+  aspectRatio="1/1"
+                        className="size-full object-cover"
         data={media.image}
         decoding="sync"
         fetchpriority="high"
         loading="eager"
-        sizes="(min-width: 1024px) 50vw, 100vw"
+        showBorder={true}
+                        showShadow={false}
+                        sizes="96px"
       />
     )
   );
@@ -153,7 +157,7 @@ function ThumbnailCarousel({
   setActiveMediaId: React.Dispatch<React.SetStateAction<null | string>>;
 }) {
   const device = useDevice();
-  const slidesPerView = 6;
+  const slidesPerView = 4;
   const [api, setApi] = useState<CarouselApi>();
 
   const handleSelect = useCallback(
@@ -167,7 +171,7 @@ function ThumbnailCarousel({
   if (medias.length <= 1) return null;
 
   return (
-    <div className="mt-3 hidden lg:block">
+    <div className="mt-3 align-center hidden lg:block">
       <Carousel
         className="[--slide-spacing:.5rem]"
         opts={{
@@ -209,7 +213,7 @@ function ThumbnailCarousel({
                         loading="eager"
                         showBorder={false}
                         showShadow={false}
-                        sizes="96px"
+                        sizes="px"
                       />
                     </button>
                   )}

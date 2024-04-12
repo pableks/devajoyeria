@@ -11,6 +11,14 @@ import type {PRODUCT_INFORMATION_SECTION_FRAGMENT} from '~/qroq/sections';
 import type {loader} from '~/routes/($locale).products.$productHandle';
 
 import {cn, getAspectRatioData} from '~/lib/utils';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '../ui/breadcrumb';
 
 import {Skeleton} from '../Skeleton';
 import {MediaGallery} from '../product/MediaGallery';
@@ -37,6 +45,22 @@ export function ProductInformationSection(
   if (variantsPromise) {
     return (
       <>
+        <Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+
         <Suspense
           fallback={
             <Skeleton>

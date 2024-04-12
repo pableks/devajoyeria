@@ -10,6 +10,7 @@ import {Footer} from './Footer';
 import {FramerMotion} from './FramerMotion';
 import {Header} from './Header';
 import {NavigationProgressBar} from './NavigationProgressBar';
+import { LazyMotion, domAnimation, m } from "framer-motion"
 
 const VisualEditing = lazy(() =>
   import('~/components/sanity/VisualEditing').then((mod) => ({
@@ -34,9 +35,13 @@ export function Layout({children = null}: LayoutProps) {
     >
       <FramerMotion>
         <NavigationProgressBar />
-        
-        <Header />
+        <LazyMotion features={domAnimation}>
+        <m.div animate={{ opacity: 1 }} />
+
         <AnnouncementBar />
+        </LazyMotion>
+          <Header />
+        
         <main className="flex min-h-[90vh] grow flex-col gap-y-[calc(var(--space-between-template-sections)*.75)] sm:gap-y-[--space-between-template-sections]">
           {children}
         </main>

@@ -1,3 +1,5 @@
+const { nextui } = require("@nextui-org/react");
+
 /* eslint perfectionist/sort-objects: 0 */
 import type {Config} from 'tailwindcss';
 
@@ -6,7 +8,11 @@ import plugin from 'tailwindcss/plugin';
 import tailwindAnimatePlugin from 'tailwindcss-animate';
 
 export default {
-  content: ['./app/**/*.{js,ts,jsx,tsx}'],
+  content: ['./app/**/*.{js,ts,jsx,tsx}',
+
+  "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+
+],
   theme: {
     extend: {
       container: {
@@ -24,6 +30,8 @@ export default {
         extra: 'var(--heading-extra-family)',
       },
       colors: {
+        custom: '#bf9550',
+        custom2: '#aecb91',
         background: 'rgb(var(--background) / <alpha-value>)',
         foreground: 'rgb(var(--foreground) / <alpha-value>)',
         border: 'rgb(var(--border) / <alpha-value>)',
@@ -75,7 +83,8 @@ export default {
       },
     },
   },
-  plugins: [
+  plugins: [  
+    nextui(),
     typographyPlugin,
     tailwindAnimatePlugin,
     plugin(({addComponents, addVariant}) => {

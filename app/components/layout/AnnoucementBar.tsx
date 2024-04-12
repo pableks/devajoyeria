@@ -1,15 +1,11 @@
 import type {TypeFromSelection} from 'groqd';
-
 import {Link} from '@remix-run/react';
 import {cx} from 'class-variance-authority';
 import Autoplay from 'embla-carousel-autoplay';
-import {useMemo} from 'react';
-
+import {useMemo, useState, useEffect} from 'react';
 import type {ANNOUCEMENT_BAR_FRAGMENT} from '~/qroq/fragments';
-
 import {useColorsCssVars} from '~/hooks/useColorsCssVars';
 import {useSanityRoot} from '~/hooks/useSanityRoot';
-
 import {IconArrowRight} from '../icons/IconArrowRight';
 import {SanityInternalLink} from '../sanity/link/SanityInternalLink';
 import {
@@ -19,6 +15,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '../ui/Carousel';
+import {motion, AnimatePresence} from 'framer-motion';
 
 type AnnoucementBarProps = TypeFromSelection<typeof ANNOUCEMENT_BAR_FRAGMENT>;
 
@@ -33,7 +30,6 @@ export function AnnouncementBar() {
         : [],
     [header],
   );
-
   const colorsCssVars = useColorsCssVars({
     selector: `#announcement-bar`,
     settings: {
@@ -45,43 +41,66 @@ export function AnnouncementBar() {
   });
 
   const isActive = annoucementBar?.length! > 1;
+  const [textIndex, setTextIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTextIndex((prevIndex) => (prevIndex + 1) % 2);
+    }, 8000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   if (!annoucementBar) return null;
 
-  return (
-    <section className="bg-background  text-foreground" id="announcement-bar">
-      <div className="container">
-        <style dangerouslySetInnerHTML={{__html: colorsCssVars}} />
-        <Carousel opts={{active: isActive, align: 'center'}} plugins={plugins}>
-          <CarouselContent className="relative ml-0 justify-center">
-            {annoucementBar?.map((item) => (
-              <CarouselItem key={item._key}>
-                <Item
-                  _key={item._key}
-                  externalLink={item.externalLink}
-                  link={item.link}
-                  openInNewTab={item.openInNewTab}
-                  text={item.text}
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          {isActive && (
-            <>
-              <CarouselPrevious />
-              <CarouselNext />
-            </>
-          )}
-        </Carousel>
-      </div>
-    </section>
-  );
-}
+  
+    return (
+      <section className="bg-custom2 text-white text-sm" id="announcement-bar">
+        <div className="container">
+          <style dangerouslySetInnerHTML={{__html: colorsCssVars}} />
+          <Carousel opts={{active: isActive, align: 'center'}} plugins={plugins}>
+            <CarouselContent className="relative ml-0 justify-center">
+              <AnimatePresence>
+                {annoucementBar?.map((item) => (
+                  <CarouselItem key={item._key}>
+                    <motion.div
+                      key={textIndex}
+                      initial={{y: -50, opacity: 0}}
+                      animate={{y: 0, opacity: 1}}
+                      exit={{y: 50, opacity: 0}}
+                      transition={{duration: 0.5}}
+                    >
+                      <Item
+                        _key={item._key}
+                        externalLink={item.externalLink}
+                        link={item.link}
+                        openInNewTab={item.openInNewTab}
+                        text={textIndex === 0 ? 'Envío gratis por compras sobre $60.000' : 'Deva Joyería'}
+                      />
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </AnimatePresence>
+            </CarouselContent>
+            {isActive && (
+              <>
+                <CarouselPrevious />
+                <CarouselNext />
+              </>
+            )}
+          </Carousel>
+        </div>
+      </section>
+    );
+  }
+  
 
 function Item(props: AnnoucementBarProps) {
   if (!props.text) return null;
 
-  const className = cx('flex w-full justify-center py-3 text-center');
+  const className = cx('py-1.5 flex w-full justify-center text-center');
 
   return props.link ? (
     <SanityInternalLink
@@ -113,9 +132,7 @@ function Item(props: AnnoucementBarProps) {
 function LinkWrapper({children}: {children: React.ReactNode}) {
   return (
     <p className="flex items-center text-sm underline-offset-4 group-hover:underline">
-      <span className="relative z-[2] block bg-background pr-2">
-        {children}
-      </span>
+      <span className="relative z-[2] block pr-2">{children}</span>
       <span className="-translate-x-[2px] transition-transform group-hover:translate-x-[-0.15px]">
         <IconArrowRight />
       </span>

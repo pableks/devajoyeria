@@ -41,6 +41,7 @@ import {sanityPreviewPayload} from './lib/sanity/sanity.payload.server';
 import {seoPayload} from './lib/seo.server';
 import {ROOT_QUERY} from './qroq/queries';
 import tailwindCss from './styles/tailwind.css';
+import {NextUIProvider} from "@nextui-org/react";
 
 // This is important to avoid re-fetching root queries on sub-navigations
 export const shouldRevalidate: ShouldRevalidateFunction = ({
@@ -207,12 +208,16 @@ export default function App() {
         <CssVars />
       </head>
       <body className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
+      <NextUIProvider>
+
         <Layout>
           <Outlet />
         </Layout>
         <ScrollRestoration nonce={nonce} />
         <Scripts nonce={nonce} />
         <LiveReload nonce={nonce} />
+        </NextUIProvider>
+
       </body>
     </html>
   );

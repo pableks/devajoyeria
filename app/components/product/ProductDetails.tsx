@@ -62,7 +62,7 @@ export function ProductDetails({
           <ShopifyDescriptionBlock {...props.value} />
         ),
         shopifyTitle: (props: {value: ShopifyTitleBlockProps}) => (
-          <ShopifyTitleBlock {...props.value} />
+          <ShopifyTitleBlock  {...props.value} />
         ),
       },
     }),
