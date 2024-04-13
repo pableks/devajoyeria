@@ -27,6 +27,7 @@ export function ProductDetails({
 }: {
   data: FeaturedProductSectionProps | ProductInformationSectionProps;
 }) {
+  
   const Components = useMemo(
     () => ({
       marks: {
@@ -56,7 +57,7 @@ export function ProductDetails({
           value: TypeFromSelection<typeof ADD_TO_CART_BUTTON_BLOCK_FRAGMENT>;
         }) => <ProductForm {...props.value} />,
         price: (props: {value: PriceBlockProps}) => (
-          <PriceBlock {...props.value} />
+          <PriceBlock  {...props.value} />
         ),
         shopifyDescription: (props: {value: ShopifyDescriptionBlockProps}) => (
           <ShopifyDescriptionBlock {...props.value} />
@@ -68,6 +69,7 @@ export function ProductDetails({
     }),
     [],
   );
+  
 
   return (
     <div className="container space-y-4 lg:max-w-none lg:px-0">

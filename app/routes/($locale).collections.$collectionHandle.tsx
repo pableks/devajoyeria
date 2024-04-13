@@ -83,6 +83,7 @@ export async function loader({context, params, request}: LoaderFunctionArgs) {
   });
 }
 
+
 export default function Collection() {
   const {cmsCollection} = useLoaderData<typeof loader>();
   const {data, encodeDataAttribute} = useSanityData({initial: cmsCollection});
