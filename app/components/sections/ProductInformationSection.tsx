@@ -71,20 +71,29 @@ export function ProductInformationSection(
               <BreadcrumbItem>
               <BreadcrumbLink
                   href={
-                    product?.title === 'Collar Pudú' || product?.title === 'Collar Chucao'
-                      ? '/collections/fauna'
-                      : product?.title === 'Aros Amanita Galáctica'
-                      ? '/collections/funga'
-                      : '/collections/'
-                  }
+                    product?.title === 'Collar Pudú' ||
+                    product?.title === 'Collar Chucao' ||
+                    product?.title === 'Collar Monito del Monte' ||
+                    product?.title === 'Collar Puma' ||
+                    product?.title === 'Aros Pudú'
+                    ? '/collections/fauna'
+                    : product?.title === 'Aros Amanita Galáctica 1' ||
+                    product?.title === 'Aros Amanita Galáctica 2'
+                    ? '/collections/funga'
+                    : '/collections/flora'
+                    }
                 > 
-                  {product?.title === 'Collar Pudú' || product?.title === 'Collar Chucao'
+                                      {product?.title === 'Collar Pudú' ||
+                    product?.title === 'Collar Chucao' ||
+                    product?.title === 'Collar Monito del Monte' ||
+                    product?.title === 'Collar Puma' ||
+                    product?.title === 'Aros Pudú'
                     ? 'Fauna'
-                    : product?.title === 'Aros Amanita Galáctica'
+                    : product?.title === 'Aros Amanita Galáctica 1' ||
+                    product?.title === 'Aros Amanita Galáctica 2'
                     ? 'Funga'
-                    : 'Colecciones'}
-                    
-                </BreadcrumbLink>
+                    : 'Flora'}
+                    </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
@@ -189,7 +198,7 @@ function ProductInformationGrid({
           )}
         >
           {productDetails}
-          <Accordion type="single" collapsible className="mt-4 w-full px-6 sm:px-0">
+          <Accordion type="single" collapsible className="mt-4  mx-8  2xl:mx-0   md:mx-8  sm:mx-8">
   <AccordionItem value="item-1">
     <AccordionTrigger>Especificaciones del producto</AccordionTrigger>
     <AccordionContent>
@@ -246,7 +255,6 @@ function ProductInformationGrid({
                 <div className='text-base'>Dimensiones:</div>
                 <div>Ancho flores: 5 cm</div>
                 <div>Alto flores: 7 cm</div>
-                <div>Largo cadena: 45 cm</div>
               </div>
             );
           case 'Collar Puma':
@@ -274,7 +282,6 @@ function ProductInformationGrid({
                 <div className='text-base'>Dimensiones:</div>
                 <div>Ancho amanita: 5 cm</div>
                 <div>Alto amanita: 1,6 cm</div>
-                <div>Largo cadena: 45 cm</div>
               </div>
             );
             case 'Aros Amanita Galáctica 2':
@@ -288,7 +295,6 @@ function ProductInformationGrid({
                 <div className='text-base'>Dimensiones:</div>
                 <div>Ancho amanita: 5 cm</div>
                 <div>Alto amanita: 1,6 cm</div>
-                <div>Largo cadena: 45 cm</div>
               </div>
             );
           case 'Collar de la paciencia':
