@@ -20,8 +20,8 @@ export default function ContactPage() {
   return (
     
     <div className="container mx-auto py-12">
-      <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-3xl p-8">
-        <h1 className="text-4xl font-bold mb-8 text-center text-custom">Contacto</h1>
+      <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-3xl p-8">
+        <h1 className="text-4xl font-light mb-8 text-center text-normal text-custom">Contacto</h1>
         <div className="flex flex-col space-y-8">
           <div className="flex items-center">
             <div className="flex-shrink-0">

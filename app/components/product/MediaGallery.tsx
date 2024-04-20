@@ -66,22 +66,35 @@ function MainMedia({
   aspectRatio?: AspectRatioData;
   media: Media;
 }) {
-  return (
-    media.__typename === 'MediaImage' &&
-    media.image && (
-      <ShopifyImage
-  aspectRatio="1/1"
-                        className="size-full object-cover"
-        data={media.image}
-        decoding="sync"
-        fetchpriority="high"
-        loading="eager"
-        showBorder={true}
-                        showShadow={false}
-                        sizes="96px"
-      />
-    )
-  );
+  switch (media.__typename) {
+    case 'MediaImage':
+      return (
+        media.image && (
+          <ShopifyImage
+            aspectRatio={aspectRatio?.value}
+            className={cn('size-full object-cover', aspectRatio?.className)}
+            data={media.image}
+            decoding="sync"
+            fetchpriority="high"
+            loading="eager"
+            showBorder={true}
+            showShadow={false}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+          />
+        )
+      );
+    case 'Video':
+      // Render video component for Video media type
+      break;
+    case 'ExternalVideo':
+      // Render external video component for ExternalVideo media type
+      break;
+    case 'Model3d':
+      // Render 3D model component for Model3d media type
+      break;
+    default:
+      return null;
+  }
 }
 
 function MobileCarousel({
@@ -206,15 +219,15 @@ function ThumbnailCarousel({
                     >
                       <span className="sr-only">{`Thumbnail ${index + 1}`}</span>
                       <ShopifyImage
-                        aspectRatio="1/1"
-                        className="size-full object-cover"
-                        data={media.image}
-                        draggable="false"
-                        loading="eager"
-                        showBorder={false}
-                        showShadow={false}
-                        sizes="px"
-                      />
+  aspectRatio="1/1"
+  className="size-full object-cover"
+  data={media.image}
+  draggable="false"
+  loading="eager"
+  showBorder={false}
+  showShadow={false}
+  sizes="96px"
+/>
                     </button>
                   )}
                 </CarouselItem>
