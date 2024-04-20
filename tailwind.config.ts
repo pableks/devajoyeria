@@ -32,6 +32,9 @@ export default {
       colors: {
         custom: '#bf9550',
         custom2: '#aecb91',
+        custom3: '#dda1a5',
+        custom4: '#41331b',
+        custom5: '#efe4dc',
         background: 'rgb(var(--background) / <alpha-value>)',
         foreground: 'rgb(var(--foreground) / <alpha-value>)',
         border: 'rgb(var(--border) / <alpha-value>)',

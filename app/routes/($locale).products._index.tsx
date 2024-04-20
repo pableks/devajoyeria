@@ -55,7 +55,7 @@ export default function AllProducts() {
 
   return (
     <div className="container py-10">
-      <h1 className="text-4xl font-light text-center mb-10">Welcome to Deva</h1>
+      <h1 className="text-4xl font-light text-center text-custom mb-10">Explora la naturaleza</h1>
       {products.length > 0 ? (
         <ProductCardGrid products={products} />
       ) : (

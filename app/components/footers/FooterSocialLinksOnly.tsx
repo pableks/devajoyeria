@@ -25,8 +25,8 @@ export function FooterSocialLinksOnly(
     <div className="container flex flex-col items-center justify-center gap-5">
       <style dangerouslySetInnerHTML={{__html: colorsCssVars}} />
      
-      <CountrySelector />
       <p className="mt-4">{data.copyright}</p>
+      <p className="mt-4">UI design by pableks</p>
     </div>
   );
 }

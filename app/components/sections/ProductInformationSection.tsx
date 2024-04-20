@@ -188,24 +188,37 @@ function ProductInformationGrid({
           )}
         >
           {productDetails}
-          <Accordion type="single" collapsible className="mt-4 w-full px-6 sm:px-0">            <AccordionItem value="item-1">
-              <AccordionTrigger>Detalles</AccordionTrigger>
-              <AccordionContent>
-              {product?.title === 'Collar Pudú' ? (
-                  <div>Special content for collar pudu product.</div>
-                ) : (
-                  <div>Yes. It adheres to the WAI-ARIA design pattern.</div>
-                )}
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger>Is it styled?</AccordionTrigger>
-              <AccordionContent>
-                Yes. It comes with default styles that matches the other
-                components&apos; aesthetic.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+          <Accordion type="single" collapsible className="mt-4 w-full px-6 sm:px-0">
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Detalles</AccordionTrigger>
+    <AccordionContent>
+      {(() => {
+        switch (product?.title) {
+          case 'Collar Pudú':
+            return <div>Special content for collar pudu product.</div>;
+          case 'Collar Chucao':
+            return <div>Special content for collar chuchao.</div>;
+          case 'Collar Monito del Monte':
+            return <div>Hey.</div>;
+          default:
+            return <div>Yes. It adheres to the WAI-ARIA design pattern.</div>;
+        }
+      })()}
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger>Is it styled?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It comes with default styles that matches the other components&apos; aesthetic.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-3">
+    <AccordionTrigger>Is it styled?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It comes with default styles that matches the other components&apos; aesthetic.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
         </div>
       </div>
     </div>

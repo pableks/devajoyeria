@@ -46,7 +46,7 @@ export function PriceBlock(props: PriceBlockProps) {
 }
 
 function Layout({children}: {children: React.ReactNode}) {
-  return <div className="ml-4 flex items-center gap-3">{children}</div>;
+  return <div className="font-italic text-zinc-600 flex items-center gap-3">{children}</div>;
 }
 
 export function ProductBadges({

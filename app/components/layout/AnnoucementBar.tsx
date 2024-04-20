@@ -77,7 +77,7 @@ export function AnnouncementBar() {
                         externalLink={item.externalLink}
                         link={item.link}
                         openInNewTab={item.openInNewTab}
-                        text={textIndex === 0 ? 'Envío gratis por compras sobre $60.000' : 'Deva Joyería'}
+                        text={textIndex === 0 ? 'Envío gratis por compras sobre $60.000' : 'Envíos a todo Chile'}
                       />
                     </motion.div>
                   </CarouselItem>

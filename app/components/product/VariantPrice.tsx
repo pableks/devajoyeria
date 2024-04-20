@@ -23,7 +23,7 @@ export function VariantPrice({
         />
         
       )}
-      {price && <ShopifyMoney className="text-lg" data={price} />}
+      {price && <ShopifyMoney className="text-3xl" data={price} />}
     </>
   );
 }
