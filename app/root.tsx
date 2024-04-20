@@ -330,19 +330,30 @@ function generateFaviconUrls() {
       rel: 'icon',
       tagName: 'link',
       type: 'image/png',
+      sizes: '32x32',
+    },
+    {
+      href: faviconAsset,
+      rel: 'icon',
+      tagName: 'link',
+      type: 'image/png',
+      sizes: '16x16',
     },
     {
       href: faviconAsset,
       rel: 'shortcut icon',
       tagName: 'link',
       type: 'image/png',
+      sizes: '192x192',
     },
     {
       href: faviconAsset,
       rel: 'apple-touch-icon',
       tagName: 'link',
       type: 'image/png',
+      sizes: '180x180',
     },
   ];
+
 
 }
