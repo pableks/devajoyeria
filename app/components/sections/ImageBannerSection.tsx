@@ -9,6 +9,7 @@ import type {SectionDefaultProps} from '~/lib/type';
 import type {IMAGE_BANNER_SECTION_FRAGMENT} from '~/qroq/sections';
 
 import type {ButtonBlockProps} from '../sanity/richtext/components/ButtonBlock';
+import {Image } from "@nextui-org/react";
 
 import {
   Banner,
@@ -33,16 +34,13 @@ export function ImageBannerSection(
   return (
     <Banner height={data.bannerHeight}>
       <BannerMedia>
-        <SanityImage
-          aspectRatio="16/9"
-          data={data.backgroundImage}
-          decoding="sync"
-          draggable={false}
-          fetchpriority="high"
-          showBorder={false}
-          showShadow={false}
-          sizes="100vw"
-        />
+      <Image
+            radius='none'
+            isZoomed
+            alt="Card background"
+            className="z-0 w-full h-full object-cover"
+            src="/images/portada.png"
+          />
       </BannerMedia>
       <BannerMediaOverlay opacity={overlayOpacity} />
       <BannerContent
