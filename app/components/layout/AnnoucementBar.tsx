@@ -57,7 +57,7 @@ export function AnnouncementBar() {
 
   
     return (
-      <section className="bg-custom2 text-white text-sm" id="announcement-bar">
+      <section className="bg-custom6 text-white text-sm" id="announcement-bar">
         <div className="container">
           <style dangerouslySetInnerHTML={{__html: colorsCssVars}} />
           <Carousel opts={{active: isActive, align: 'center'}} plugins={plugins}>

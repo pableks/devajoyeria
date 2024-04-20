@@ -30,6 +30,7 @@ import {MediaGallery} from '../product/MediaGallery';
 import {ProductDetails} from '../product/ProductDetails';
 import type {ShopifyTitleBlockProps} from '../blocks/ShopifyTitleBlock';
 import {useProduct} from '@shopify/hydrogen-react';
+import { Separator } from "../ui/separator"
 
 export type ProductInformationSectionProps = TypeFromSelection<
   typeof PRODUCT_INFORMATION_SECTION_FRAGMENT
@@ -190,32 +191,162 @@ function ProductInformationGrid({
           {productDetails}
           <Accordion type="single" collapsible className="mt-4 w-full px-6 sm:px-0">
   <AccordionItem value="item-1">
-    <AccordionTrigger>Detalles</AccordionTrigger>
+    <AccordionTrigger>Especificaciones del producto</AccordionTrigger>
     <AccordionContent>
       {(() => {
         switch (product?.title) {
           case 'Collar Pudú':
-            return <div>Special content for collar pudu product.</div>;
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div>Cristal swarovski de corazón.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho pudú: 1,7 cm</div>
+                <div>Alto pudú: 1,5 cm</div>
+                <div>Largo cadena: 45 cm</div>
+              </div>
+            );
           case 'Collar Chucao':
-            return <div>Special content for collar chuchao.</div>;
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho chucao: 1,6 cm</div>
+                <div>Alto chucao: 1,4 cm</div>
+                <div>Largo cadena: 45 cm</div>
+              </div>
+            );
           case 'Collar Monito del Monte':
-            return <div>Hey.</div>;
-          default:
-            return <div>Yes. It adheres to the WAI-ARIA design pattern.</div>;
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div>Dije de luna bañado en oro.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho monito del monte: 1 cm</div>
+                <div>Alto monito del monte: 2 cm</div>
+                <div>Largo cadena: 45 cm</div>
+              </div>
+            );
+          case 'Aros de la paciencia':
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho flores: 5 cm</div>
+                <div>Alto flores: 7 cm</div>
+                <div>Largo cadena: 45 cm</div>
+              </div>
+            );
+          case 'Collar Puma':
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div>Cristal swarovski de corazón.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho puma: 1,5 cm</div>
+                <div>Alto puma: 2 cm</div>
+                <div>Largo cadena: 45 cm</div>
+              </div>
+            );
+          case 'Aros Amanita Galáctica 1':
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div>Perlas de río.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho amanita: 5 cm</div>
+                <div>Alto amanita: 1,6 cm</div>
+                <div>Largo cadena: 45 cm</div>
+              </div>
+            );
+            case 'Aros Amanita Galáctica 2':
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div>Perlas de río.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho amanita: 5 cm</div>
+                <div>Alto amanita: 1,6 cm</div>
+                <div>Largo cadena: 45 cm</div>
+              </div>
+            );
+          case 'Collar de la paciencia':
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho flor: 5 cm.</div>
+                <div>Alto flor: 3,5 cm.</div>
+                <div>Largo cadena: 45 cm.</div>
+              </div>
+            );
+          case 'Aros Monstera deliciosa':
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho monstera: 1,3 cm</div>
+                <div>Alto monstera: 1,3 cm</div>
+              </div>
+            );
+          case 'Aros Pudú':
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho pudúes: 2 cm</div>
+                <div>Alto pudúes: 1,5 cm</div>
+              </div>
+            );
         }
       })()}
     </AccordionContent>
   </AccordionItem>
   <AccordionItem value="item-2">
-    <AccordionTrigger>Is it styled?</AccordionTrigger>
+    <AccordionTrigger>Cuidados</AccordionTrigger>
     <AccordionContent>
-      Yes. It comes with default styles that matches the other components&apos; aesthetic.
+    <div>No exponer al sol directo, agua o humedad.</div>
+                <div>Evitar el contacto con cosméticos (perfume, crema, maquillaje, etc).</div>
+                <div>No utilizar al dormir o durante actividades físicas.</div>
+                <div>Limpiar con un paño o pincel suave y seco.</div>
+                <div>Mantener la joya dentro de su estuche.</div>
     </AccordionContent>
   </AccordionItem>
   <AccordionItem value="item-3">
-    <AccordionTrigger>Is it styled?</AccordionTrigger>
+    <AccordionTrigger>Envío y promociones</AccordionTrigger>
     <AccordionContent>
-      Yes. It comes with default styles that matches the other components&apos; aesthetic.
+    <div>Envíos a todo Chile por pagar.</div>
+                <div>Envío gratis por compras sobre $60.000.</div>
     </AccordionContent>
   </AccordionItem>
 </Accordion>

@@ -48,7 +48,7 @@ const CardMedia = forwardRef<
         'group-hover/card:border', // Add border on hover
         'group-hover/card:border-solid', // Specify border style
         'group-hover/card:border-2', // Specify border width
-        'group-hover/card:border-pink-500', // Specify border color
+        'group-hover/card:border-custom3', // Specify border color
         'transition duration-700 ease-in-out', // Add transition properties
         'group-hover/card:transition-delay-700', // Add transition delay on hover
         ratios[aspectRatio],
