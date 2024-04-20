@@ -27,7 +27,7 @@ import {Layout} from '~/components/layout/Layout';
 
 import type {HydrogenSession} from './lib/hydrogen.session.server';
 
-import faviconAsset from '../public/favicon.ico';
+import faviconAsset from '../public/favicon.png';
 import {CssVars} from './components/CssVars';
 import {Fonts} from './components/Fonts';
 import {generateSanityImageUrl} from './components/sanity/SanityImage';
@@ -329,7 +329,20 @@ function generateFaviconUrls() {
       href: faviconAsset,
       rel: 'icon',
       tagName: 'link',
-      type: 'image/x-icon',
+      type: 'image/png',
+    },
+    {
+      href: faviconAsset,
+      rel: 'shortcut icon',
+      tagName: 'link',
+      type: 'image/png',
+    },
+    {
+      href: faviconAsset,
+      rel: 'apple-touch-icon',
+      tagName: 'link',
+      type: 'image/png',
     },
   ];
+
 }
