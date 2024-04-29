@@ -71,7 +71,7 @@ function MainMedia({
       return (
         media.image && (
           <ShopifyImage
-            aspectRatio={aspectRatio?.value}
+            aspectRatio="3/4"
             className={cn('size-full object-cover', aspectRatio?.className)}
             data={media.image}
             decoding="sync"
@@ -132,7 +132,7 @@ function MobileCarousel({
               >
                 {media.__typename === 'MediaImage' && media.image && (
                   <ShopifyImage
-                    aspectRatio={aspectRatio?.value}
+                    aspectRatio="3/4"
                     className={cn(
                       'size-full object-cover',
                       aspectRatio?.className,

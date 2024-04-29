@@ -78,7 +78,13 @@ export function ProductInformationSection(
                     product?.title === 'Aros Pudú'
                     ? '/collections/fauna'
                     : product?.title === 'Aros Amanita Galáctica 1' ||
-                    product?.title === 'Aros Amanita Galáctica 2'
+                    product?.title === 'Aros Amanita Galáctica 2' ||
+                    product?.title === 'Collar Mycena Cyanocephala' ||
+                    product?.title === 'Aros Mycena Cyanocephala' ||
+                    product?.title === 'Aros Cortinarius Magellanicus' ||
+                    product?.title === 'Collar Cortinarius Magellanicus' ||
+                    product?.title === 'Aros Amanita Muscaria' ||
+                    product?.title === 'Collar Amanita Muscaria'
                     ? '/collections/funga'
                     : '/collections/flora'
                     }
@@ -90,7 +96,13 @@ export function ProductInformationSection(
                     product?.title === 'Aros Pudú'
                     ? 'Fauna'
                     : product?.title === 'Aros Amanita Galáctica 1' ||
-                    product?.title === 'Aros Amanita Galáctica 2'
+                    product?.title === 'Aros Amanita Galáctica 2' ||
+                    product?.title === 'Collar Mycena Cyanocephala' ||
+                    product?.title === 'Aros Mycena Cyanocephala' ||
+                    product?.title === 'Aros Cortinarius Magellanicus' ||
+                    product?.title === 'Collar Cortinarius Magellanicus' ||
+                    product?.title === 'Aros Amanita Muscaria' ||
+                    product?.title === 'Collar Amanita Muscaria'
                     ? 'Funga'
                     : 'Flora'}
                     </BreadcrumbLink>
@@ -334,6 +346,93 @@ function ProductInformationGrid({
                 <div>Alto pudúes: 1,5 cm</div>
               </div>
             );
+          case 'Collar Mycena Cyanocephala':
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho hongo:  1,5 cm.</div>
+                <div>Alto hongo:  2,3 cm.</div>
+                <div>Largo cadena: 45 cm.</div>
+              </div>
+            );
+          case 'Aros Mycena Cyanocephala':
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho hongos: 1,5 cm.</div>
+                <div>Alto hongos:  2,3 cm.</div>              
+              </div>
+            );
+          case 'Aros Cortinarius Magellanicus':
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho hongos: 1,3 cm.</div>
+                <div>Alto hongos: 2,2 cm.</div>              
+              </div>
+            );
+          case 'Aros Cortinarius Magellanicus':
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho hongos: 1,3 cm.</div>
+                <div>Alto hongos: 2,2 cm.</div>              
+              </div>
+            );
+          case 'Collar Cortinarius Magellanicus':
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho hongo: 1,2 cm.</div>
+                <div>Alto hongo: 1,3 cm.</div>
+                <div>Largo cadena: 45 cm.</div>              
+              </div>
+            );
+          case 'Aros Amanita Muscaria':
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho hongos: 1,8 cm.</div>
+                <div>Alto hongos: 2,3 cm.</div>            
+              </div>
+            );
+          case 'Collar Amanita Muscaria':
+            return (
+              <div>
+                <div className='text-base'>Materialidad:</div>
+                <div>Arcilla polimérica y resina UV.</div>
+                <div>Fornituras bañadas en oro.</div>
+                <div className='mt-4 '></div>
+                <div className='text-base'>Dimensiones:</div>
+                <div>Ancho hongo: 1,8 cm.</div>
+                <div>Alto hongo: 2,3 cm.</div>
+                <div>Largo cadena: 45 cm.</div>              
+              </div>
+            );                  
         }
       })()}
     </AccordionContent>
