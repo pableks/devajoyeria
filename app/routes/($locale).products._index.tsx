@@ -9,7 +9,7 @@ import {ALL_PRODUCTS_QUERY} from '~/graphql/queries';
 import {useSanityRoot} from '~/hooks/useSanityRoot';
 import {seoPayload} from '~/lib/seo.server';
 
-const PAGE_BY = 9;
+const PAGE_BY = 16;
 
 export async function loader({
   context: {storefront},
