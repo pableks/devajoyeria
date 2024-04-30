@@ -10,6 +10,7 @@ import {flattenConnection} from '@shopify/hydrogen';
 import React, {useCallback, useState} from 'react';
 
 import type {loader} from '~/routes/($locale).products.$productHandle';
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 
 import {useDevice} from '~/hooks/useDevice';
 import {type AspectRatioData, cn} from '~/lib/utils';
@@ -59,6 +60,9 @@ export function MediaGallery(props: {aspectRatio?: AspectRatioData}) {
   );
 }
 
+
+
+
 function MainMedia({
   aspectRatio,
   media,
@@ -106,6 +110,10 @@ function MobileCarousel({
 }) {
   const device = useDevice();
   const isActive = medias.length > 1;
+  const [resetVisible, setResetVisible] = useState(false);
+
+  const resetZoom = () => setResetVisible(false);
+
 
   if (!isActive) {
     return (
@@ -130,6 +138,11 @@ function MobileCarousel({
                 className="last:pr-[--slide-spacing] [&>span]:h-full"
                 key={media.id}
               >
+              <TransformWrapper
+              
+                
+              >
+                <TransformComponent> 
                 {media.__typename === 'MediaImage' && media.image && (
                   <ShopifyImage
                     aspectRatio="3/4"
@@ -144,6 +157,8 @@ function MobileCarousel({
                     sizes="100vw"
                   />
                 )}
+                </TransformComponent>
+              </TransformWrapper>
               </CarouselItem>
             );
           })}
