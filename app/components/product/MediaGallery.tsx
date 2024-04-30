@@ -118,7 +118,9 @@ function MobileCarousel({
   if (!isActive) {
     return (
       <div className="container lg:hidden">
+        
         <MainMedia aspectRatio={aspectRatio} media={medias[0]} />
+        
       </div>
     );
   }
@@ -131,19 +133,23 @@ function MobileCarousel({
       }}
     >
       <div className="relative">
+      <TransformWrapper
+      minScale={1}
+              disablePadding={true}
+                
+              >
+                <TransformComponent> 
         <CarouselContent className="px-[--slide-spacing]">
           {medias.map((media, index) => {
             return (
+              
               <CarouselItem
                 className="last:pr-[--slide-spacing] [&>span]:h-full"
                 key={media.id}
               >
-              <TransformWrapper
               
-                
-              >
-                <TransformComponent> 
                 {media.__typename === 'MediaImage' && media.image && (
+                  
                   <ShopifyImage
                     aspectRatio="3/4"
                     className={cn(
@@ -156,13 +162,16 @@ function MobileCarousel({
                     loading={index === 0 ? 'eager' : 'lazy'}
                     sizes="100vw"
                   />
+                 
                 )}
-                </TransformComponent>
-              </TransformWrapper>
+                
               </CarouselItem>
+              
             );
           })}
         </CarouselContent>
+        </TransformComponent>
+              </TransformWrapper>
         <div className="mt-3 flex items-center justify-center">
           <Badge variant="outline">
             <CarouselCounter>
