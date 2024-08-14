@@ -1,29 +1,31 @@
 import type {HydrogenImageProps} from '@shopify/hydrogen-react/Image';
 import type {ImageFragmentFragment} from 'storefrontapi.generated';
+
 import {Image, parseGid} from '@shopify/hydrogen';
+
 import {cn} from '~/lib/utils';
 
-interface ShopifyImageProps extends HydrogenImageProps {
-  className?: string;
-  data: ImageFragmentFragment;
-  showBorder?: boolean;
-  showShadow?: boolean;
-}
-
+/**
+ * `ShopifyImage` is a wrapper around the `Image` component from `@shopify/hydrogen`.
+ * It displays a Shopify image with a blur effect preview while the image is loading.
+ */
 export function ShopifyImage({
   className,
   data,
   showBorder = true,
   showShadow = true,
-  height,
   ...props
-}: ShopifyImageProps) {
+}: {
+  className?: string;
+  data: ImageFragmentFragment;
+  showBorder?: boolean;
+  showShadow?: boolean;
+} & HydrogenImageProps) {
   const id = parseGid(data.id || undefined).id;
-
-  // Check if height is a valid number
-  const safeHeight = typeof height === 'number' && !isNaN(height) 
-    ? height 
-    : undefined;
+  
+  // Provide default values for width and height
+  const width = data.width || 100;
+  const height = data.height || 100;
 
   return (
     <span
@@ -39,7 +41,8 @@ export function ShopifyImage({
       <Image
         className={cn('relative z-[1]', className, '!p-0')}
         data={data}
-        height={safeHeight}
+        width={width}
+        height={height}
         {...props}
       />
       {id && (
